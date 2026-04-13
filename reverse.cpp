@@ -1,20 +1,22 @@
 #include <iostream>
 using namespace std;
-    void reverseArray(int arr[],int sz){
-        int start=0, end = sz-1;
-        while(start<end){
-            swap(arr[start], arr[end]);
-            start++;
-            end--;
-        }
-    }
-int main (){
-    int arr[] = {4,5,9,8,6,1};
-    int sz = 6;
-    reverseArray(arr,sz);
-    for(int i=0; i<sz; i++){
-        cout << arr[i]<<" ";
-    }
-    cout << endl;
+
+int reverse(int n, int rev) {
+    if (n == 0) return rev;   
+
+    return reverse(n / 10, rev * 10 + (n % 10));
+}
+
+int reverseNumber(int n) {
+    return reverse(n, 0);
+}
+
+int main() {
+    int n;
+    cout << "Enter number: ";
+    cin >> n;
+
+    cout << "Reversed = " << reverseNumber(n);
+
     return 0;
 }
